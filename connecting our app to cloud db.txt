@@ -1,0 +1,74 @@
+connecting our app to mongodb atlas
+steps:
+1.Change url in app.js
+2.change port number
+3.cheeck network acess
+4.check db users.
+5.do all 3 steps.
+6.leave name of db and paste the remaining url.
+  
+
+_------------------------------------------------------------------------
+CONNECTING THE REACT SERVER AND NODE SERVER..........
+REACT RIGHTNOW WORKING ON PORT 3000 AND NODE ON PORT 4000.. IN LOCALHOST
+----------------------------------------------------------------------------
+
+after making the front end form complete..
+*do all the react (front end in a folder named frontend)
+ now outside
+* now make server.js and folder routes and models and init npm here...
+* 
+VERY IMPORTANT ---> ADD IN THE PACKAGE.JSON IN THE FRONTEND FOLDER 
+                    "proxy":"http://localhost:3001"
+-----------------------------------------------------------------------------
+CORS AND ITS ERROR
+basically node server and react server is running on different ports 
+basically different origins...
+now i need to tell that we allow request to come from other origins....
+and this what the access-control-allow-origin allow us to do ...
+
+by default only the same origin is allow to send request
+now we have to give the origins in the express server 
+giving it the names of the allowed origins.
+and this will remove the cors error..
+
+npm install cors
+const cors=require('cors')
+app.use(cors({              //its  a method. either give the *(all allowed) or some specific
+    origin:"*"
+}))
+
+************************************
+by default it allowed to do everything
+PUT,GET,POST,DELETE
+by we can restrict the other orign to limit their reach
+
+app.use(cors({              //its  a method. either give the *(all allowed) or some specific
+    origin:"*",
+    methods:["GET","POST"]        //only get and post allowed to other urls
+}))                               
+********************************************** 
+see other things in network in inspect and check for other access...
+----------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------------
+
+NOW CONNECTING OUR APP TO mongodb atlas
+1.add a notes collection in the database....
+-> go the cluster and connect..
+use mongo shell and change the db name and enter password..
+
+2. now connect the database to the application...
+paste that in mongoose.connect();
+
+-------------------------------------------------------------------------
+
+we need axios in the react to connect our frontend to backend -> install axios.
+now in frontend
+1st argument -> where to post this data = address of backend server.
+2nd argument -> the data.
+send this object to the given address.
+const newNote = {
+    title:input.title,content : input.content
+}
+axios.post('http://localhost:3001/create',newNote);
