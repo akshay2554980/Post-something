@@ -1,0 +1,7 @@
+{
+    "editor.quickSuggestions": null,
+    "emmet.includeLanguages": {
+        "javascript": "javascriptreact"
+      },
+      "emmet.triggerExpansionOnTab": true
+}

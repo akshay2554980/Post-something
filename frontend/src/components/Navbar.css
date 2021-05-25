@@ -1,0 +1,17 @@
+.navright{
+    display: flex;
+    margin: 10px;
+    padding: 10px;
+}
+.navrightdiv{
+    padding: 10px;
+    margin: 10px;
+}
+.link{
+    color: black;
+    text-decoration: none;
+}
+.link:hover{
+    text-decoration: none;
+    color: olive;
+}
